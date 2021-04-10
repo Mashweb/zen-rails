@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Zen Notebook</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      @import "javascripts/dojo/dijit/themes/tundra/tundra.css";
+      @import "javascripts/dojo/dojo/resources/dojo.css";
+      @import "stylesheets/zen.css";
+    </style>
+  </head>
+  <body class="tundra">
+    <div>
+      <img id="zenLoadingImg" src="images/loading.gif" alt="loading" />
+    </div>
+    <div id="zen"></div>
+    <div id="diagramPane" style="width:1px; height:1px;"></div>
+    <iframe id="ifr" src="web/orbitz.com" width="100%" height="400px"></iframe>
+    <script type="text/javascript">
+      djConfig = {
+          parseOnLoad: true,
+          isDebug: true,
+          modulePaths: { zen: "../../zen" }
+      };
+    </script>
+    <script type="text/javascript" src="javascripts/dojo/dojo/dojo.js">/</script>
+    <script type="text/javascript" src="javascripts/zen/test.js">/</script>
+    <script type="text/javascript">
+      dojo.addOnLoad(function() {
+          dojo.require("zen.dojo");
+          dojo.require("zen");
+	  dojo.addOnLoad(function() {
+	      console.debug("onLoad: calling zen.init()");
+	      zen.init();
+	      console.debug("returned from zen.init()");
+	  });
+      });
+    </script>
+  </body>
+</html>
